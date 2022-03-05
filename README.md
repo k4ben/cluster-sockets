@@ -9,6 +9,8 @@ npm install cluster-sockets --save
 ```javascript
 const { ClusterServer } = require('cluster-sockets');
 
+const callsign = "N0CAL"; // Replace with your callsign
+
 const clusterServer = new ClusterServer(callsign, {
   hostname: "telnet.reversebeacon.net",
   port: 7000,
@@ -19,6 +21,8 @@ const clusterServer = new ClusterServer(callsign, {
 ```javascript
 const { createServer } = require ('http');
 const { ClusterServer } = require('cluster-sockets');
+
+const callsign = "N0CAL"; // Replace with your callsign
 
 const webServer = createServer();
 webServer.listen(80);
@@ -43,7 +47,7 @@ clusterClient.on("connected", async ()=> {
   clusterClient.leave(0);
 });
 clusterClient.on("spot", clusterSpot => {
-  if (clusterSpot.spot.dxCall != callsign) return;
+  if (clusterSpot.spot.dxCall != "N0CAL") return;
 
   console.log(`You've been spotted by ${clusterSpot.hostname}:${clusterSpot.port}!`);
   console.log(clusterSpot.spot);
