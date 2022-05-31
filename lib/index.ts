@@ -2,7 +2,8 @@ import { Server } from 'socket.io';
 import { io as createSocket, Socket } from 'socket.io-client';
 import { Server as HttpServer, createServer } from 'http';
 import { Server as HttpsServer } from 'https';
-import type { ClusterOptions, HamCluster } from 'ham-cluster';
+import { HamCluster } from 'ham-cluster';
+import type { ClusterOptions } from 'ham-cluster';
 
 type ClusterClientEventLabels = "connected" | "spot" | "error";
 type Spot = { [key: string]: string };
